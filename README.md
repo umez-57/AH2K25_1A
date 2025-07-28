@@ -76,12 +76,44 @@ The solution employs a hybrid approach:
 
 ## Usage
 
-### Basic Usage
+### Docker (Recommended)
+
+#### Building the Docker Image
+```bash
+docker build --platform linux/amd64 -t pdf-heading-extractor .
+```
+
+#### Running with Docker
+```bash
+# Create output directory if it doesn't exist
+mkdir -p output
+
+# Run the container
+docker run -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output pdf-heading-extractor
+```
+
+#### Docker Example
+```bash
+# Build the image
+docker build --platform linux/amd64 -t pdf-heading-extractor .
+
+# Run the container
+docker run -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output pdf-heading-extractor
+```
+
+This will:
+1. Process all PDF files in the `input/` directory
+2. Generate corresponding JSON files in the `output/` directory
+3. Each output file contains the extracted title and outline
+
+### Local Python Usage
+
+#### Basic Usage
 ```bash
 python main.py input_directory output_directory
 ```
 
-### Example
+#### Example
 ```bash
 python main.py /app/input /app/output
 ```
