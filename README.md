@@ -111,6 +111,16 @@ This will:
 ```
 
 ## Training and Evaluation
+Dataset & Annotation
+For this hackathon we built our own corpus of 500 PDF documents spanning technical manuals, research papers, brochures and more.
+
+We used a custom chain-of-thought prompt with a large language model to pre-label titles and headings, then manually reviewed and corrected those annotations.
+
+About 10% of the PDFs are in non-English languages, demonstrating that our layout-based approach is language-agnostic.
+
+This curated dataset was used to train our XGBoost classifier on top of the heuristic features.
+
+
 
 ### Retraining the Model
 ```bash
